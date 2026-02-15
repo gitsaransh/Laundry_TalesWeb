@@ -476,6 +476,73 @@
     </a>
 
     <script src="script.js"></script>
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <h2 class="modal-title">Schedule Pickup</h2>
+            <p class="modal-subtitle">Fill in your details and we'll collect your laundry.</p>
+
+            <form action="https://formspree.io/f/xvgzqawl" method="POST" id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service" class="form-input">
+                        <option value="wash-fold">Wash & Fold</option>
+                        <option value="steam-ironing">Steam Ironing</option>
+                        <option value="dry-cleaning">Dry Cleaning</option>
+                        <option value="premium-laundry">Premium Laundry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Pickup Address</label>
+                    <textarea id="address" name="address" class="form-input" rows="3"
+                        placeholder="Apartment, Street Area..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirm Pickup</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('bookingModal');
+        const openButtons = document.querySelectorAll('.btn-cta-glow, .btn-plan, .btn-cta-large, .btn-primary'); // Target all booking buttons
+
+        function openModal() {
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Attach event listeners to all book buttons
+        openButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent jump to #contact
+                openModal();
+            });
+        });
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
