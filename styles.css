@@ -1008,6 +1008,190 @@ footer {
     color: var(--primary-color);
 }
 
+/* --- Pricing Modern Section --- */
+.pricing-modern-section {
+    padding: 100px 0;
+    background-color: var(--white);
+    position: relative;
+}
+
+.pricing-modern-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 60px;
+}
+
+@media (min-width: 900px) {
+    .pricing-modern-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pricing-modern-card {
+    position: relative;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Slight border */
+    transition: all 0.5s ease;
+    overflow: hidden;
+    text-align: left;
+    /* Rocket AI design is left-aligned */
+}
+
+/* Highlighted "Most Popular" Card */
+.pricing-modern-card.card-highlight {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(240, 250, 255, 0.9));
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 86, 179, 0.15);
+    /* shadow-glow-blue */
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .pricing-modern-card.card-highlight {
+        transform: scale(1);
+        /* No scale on mobile */
+        margin: 20px 0;
+    }
+}
+
+.pricing-modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 168, 232, 0.15);
+}
+
+.pricing-modern-card.card-highlight:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+/* Popular Badge */
+.popular-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-bottom-left-radius: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Card Icon Header */
+.plan-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.1), rgba(0, 168, 232, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    font-size: 1.2rem;
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.plan-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Price Typography */
+.price-display {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.price-amount {
+    font-size: 3rem;
+    /* 5xl equivalent */
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Feature List */
+.plan-features {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.plan-features li i {
+    color: var(--success-color);
+    margin-top: 4px;
+    /* Align icon with text top */
+    flex-shrink: 0;
+}
+
+/* CTA Buttons */
+.btn-plan {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.btn-plan-outline {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+.btn-plan-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-plan-filled {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 168, 232, 0.3);
+}
+
+.btn-plan-filled:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 168, 232, 0.5);
+}
+
 /* --- Services Grid Section --- */
 .services-section {
     padding: 100px 0;
