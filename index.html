@@ -289,21 +289,22 @@
                     <h3>Book a Pickup</h3>
                     <form id="bookingForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" id="bookingName" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="tel" id="bookingPhone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select id="bookingService" required>
                                 <option value="" disabled selected>Select Service</option>
-                                <option value="wash-fold">Wash & Fold</option>
-                                <option value="wash-iron">Wash & Iron</option>
-                                <option value="dry-cleaning">Dry Cleaning</option>
+                                <option value="Delicate Wash & Fold">Delicate Wash & Fold</option>
+                                <option value="Wash & Iron">Wash & Iron</option>
+                                <option value="Steam Ironing">Steam Ironing</option>
+                                <option value="Dry Cleaning">Dry Cleaning</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Address / Flat No." required>
+                            <input type="text" id="bookingAddress" placeholder="Address / Flat No." required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Schedule Pickup</button>
                     </form>

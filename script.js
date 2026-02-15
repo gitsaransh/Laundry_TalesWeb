@@ -47,13 +47,26 @@ const bookingForm = document.getElementById('bookingForm');
 bookingForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Get values (for demonstration)
-    const name = bookingForm.querySelector('input[type="text"]').value;
-    const phone = bookingForm.querySelector('input[type="tel"]').value;
-    const service = bookingForm.querySelector('select').value;
+    // Get values
+    const name = document.getElementById('bookingName').value;
+    const phone = document.getElementById('bookingPhone').value;
+    const service = document.getElementById('bookingService').value;
+    const address = document.getElementById('bookingAddress').value;
 
-    if (name && phone && service) {
-        alert(`Thank you ${name}! \nWe have received your request for ${service}. \nWe will call you at ${phone} shortly to confirm the pickup.`);
+    if (name && phone && service && address) {
+        const message = `*New Pickup Request From Website*
+        
+*Name:* ${name}
+*Phone:* ${phone}
+*Service:* ${service}
+*Address:* ${address}
+
+Please confirm the pickup slot.`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/9591553482?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
         bookingForm.reset();
     } else {
         alert('Please fill in all details.');
