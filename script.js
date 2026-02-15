@@ -29,67 +29,37 @@ mobileLinks.forEach(link => {
 
 // Sticky Navbar
 const navbar = document.querySelector('.navbar');
-const hero = document.querySelector('.hero');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    } else {
+    if (window.scrollY > 50) {
         navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
-    }
-});
-
-// Booking Form Handling
-const bookingForm = document.getElementById('bookingForm');
-
-bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Get values
-    const name = document.getElementById('bookingName').value;
-    const phone = document.getElementById('bookingPhone').value;
-    const service = document.getElementById('bookingService').value;
-    const address = document.getElementById('bookingAddress').value;
-
-    if (name && phone && service && address) {
-        const message = `*New Pickup Request From Website*
-        
-*Name:* ${name}
-*Phone:* ${phone}
-*Service:* ${service}
-*Address:* ${address}
-
-Please confirm the pickup slot.`;
-
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/9591553482?text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank');
-        bookingForm.reset();
+        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        navbar.style.backdropFilter = 'blur(10px)';
     } else {
-        alert('Please fill in all details.');
+        navbar.style.backgroundColor = 'transparent';
+        navbar.style.boxShadow = 'none';
+        navbar.style.backdropFilter = 'none';
     }
 });
 
-// Simple Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.service-card, .pricing-card, .step-card, .review-card');
+// Scroll Reveal Animation
+const revealElements = document.querySelectorAll('.service-modern-card, .process-step-card, .pricing-modern-card, .review-card, .value-card, .cta-text-content, .cta-image-wrapper');
 
 const revealOnScroll = () => {
     const windowHeight = window.innerHeight;
-    const elementVisible = 150;
+    const elementVisible = 100;
 
     revealElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('revealed');
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
         }
     });
 };
 
-// Initial state for reveal elements
+/* Apply initial styles for reveal */
 revealElements.forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
@@ -97,5 +67,73 @@ revealElements.forEach(element => {
 });
 
 window.addEventListener('scroll', revealOnScroll);
-// Trigger once on load
-revealOnScroll();
+revealOnScroll(); // Trigger once on load
+
+
+/* --- Booking Modal Logic --- */
+const modal = document.getElementById('bookingModal');
+const openButtons = document.querySelectorAll('.btn-cta-glow, .btn-plan, .btn-cta-large, .nav-btn, .btn-primary');
+const closeButton = document.querySelector('.modal-close');
+const bookingForm = document.getElementById('bookingForm');
+
+function openModal() {
+    if (modal) modal.classList.add('active');
+}
+
+function closeModal() {
+    if (modal) modal.classList.remove('active');
+}
+
+// Open Modal on Button Click
+openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+});
+
+// Close Modal logic
+if (closeButton) {
+    closeButton.addEventListener('click', closeModal);
+}
+
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+// WhatsApp Form Submission
+if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get values from the NEW form IDs
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const address = document.getElementById('address').value;
+
+        if (name && phone && service && address) {
+            const message = `*New Pickup Request via Website*
+            
+*Name:* ${name}
+*Phone:* ${phone}
+*Service Type:* ${service}
+*Address:* ${address}
+
+Please confirm my pickup slot.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/9591553482?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+            bookingForm.reset();
+            closeModal();
+        } else {
+            alert('Please fill in all details.');
+        }
+    });
+}

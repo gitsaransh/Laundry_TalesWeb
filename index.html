@@ -474,75 +474,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact section-padding" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>We are just a call or click away.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>The Prestige City, Bhavisha Golden Bilva,<br>Golden Serenity Layout, Nxt to V.
-                                Kallahalli,<br>Yamare, Bengaluru, Karnataka 562125, India</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p><a href="tel:9591553482">9591553482</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Open Everyday<br>Closes 7 PM</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-                <div class="booking-form-container">
-                    <h3>Book a Pickup</h3>
-                    <form id="bookingForm">
-                        <div class="form-group">
-                            <input type="text" id="bookingName" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="bookingPhone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-group">
-                            <select id="bookingService" required>
-                                <option value="" disabled selected>Select Service</option>
-                                <option value="Delicate Wash & Fold">Delicate Wash & Fold</option>
-                                <option value="Wash & Iron">Wash & Iron</option>
-                                <option value="Steam Ironing">Steam Ironing</option>
-                                <option value="Dry Cleaning">Dry Cleaning</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="bookingAddress" placeholder="Address / Flat No." required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Schedule Pickup</button>
-                    </form>
-                </div>
-            </div>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.518641477488!2d77.72895807481545!3d12.874347987432174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae739569762a05%3A0x6e9a65d34199859f!2sThe%20Prestige%20City%20Sarjapur!5e0!3m2!1sen!2sin!4v1708849200000!5m2!1sen!2sin"
-                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -566,11 +497,10 @@
         Book Now
     </a>
 
-    <script src="script.js"></script>
     <!-- Booking Modal -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
             <h2 class="modal-title">Schedule Pickup</h2>
             <p class="modal-subtitle">Fill in your details and we'll collect your laundry.</p>
 
@@ -606,34 +536,7 @@
         </div>
     </div>
 
-    <script>
-        // Modal Logic
-        const modal = document.getElementById('bookingModal');
-        const openButtons = document.querySelectorAll('.btn-cta-glow, .btn-plan, .btn-cta-large, .btn-primary'); // Target all booking buttons
-
-        function openModal() {
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-
-        // Attach event listeners to all book buttons
-        openButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent jump to #contact
-                openModal();
-            });
-        });
-
-        // Close on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
