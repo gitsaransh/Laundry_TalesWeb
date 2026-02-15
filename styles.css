@@ -1355,6 +1355,100 @@ footer {
     box-shadow: 0 8px 25px rgba(0, 168, 232, 0.5);
 }
 
+/* --- Process Section (How It Works) --- */
+.process-section {
+    padding: 100px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+    position: relative;
+}
+
+@media (min-width: 900px) {
+    .process-steps {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    /* Connecting Line */
+    .process-steps::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        /* Align with number center */
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: repeating-linear-gradient(to right, var(--secondary-color) 0, var(--secondary-color) 10px, transparent 10px, transparent 20px);
+        z-index: 0;
+    }
+}
+
+.process-step-card {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.1);
+    transition: all 0.3s ease;
+}
+
+.process-step-card:hover .step-number {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.25);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    height: 60px;
+    display: flex;
+    /* Center icon vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.step-desc {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
 /* --- Services Grid Section --- */
 .services-section {
     padding: 100px 0;
