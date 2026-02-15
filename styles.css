@@ -896,16 +896,238 @@ footer {
     transform: scale(1.1);
 }
 
-.book-now-float {
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-color);
+/* --- Values Section (Trust Indicators) --- */
+.values-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, rgba(243, 244, 246, 0.3), var(--white));
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.value-card {
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all 0.5s ease;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Glass effect reuse */
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+    /* shadow-glow-blueish */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 24px;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--white);
-    padding: 12px 30px;
-    border-radius: 50px;
+    font-size: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.value-card:hover .icon-circle {
+    transform: scale(1.1) rotate(6deg);
+}
+
+.icon-glow-ring {
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: rgba(0, 86, 179, 0.2);
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.value-card:hover .icon-glow-ring {
+    opacity: 1;
+}
+
+.value-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.value-card:hover .value-title {
+    color: var(--primary-color);
+}
+
+/* --- Services Grid Section --- */
+.services-section {
+    padding: 100px 0;
+    background-color: rgba(243, 244, 246, 0.3);
+}
+
+.services-modern-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+    .services-modern-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.service-modern-card {
+    position: relative;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.service-modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 168, 232, 0.15);
+    /* cyan glow */
+}
+
+/* 3D Icon Box */
+.service-icon-3d {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.8rem;
+    box-shadow: 0 10px 20px rgba(0, 86, 179, 0.25);
+    margin-bottom: 24px;
+    transition: all 0.5s;
+    z-index: 2;
+}
+
+.service-modern-card:hover .service-icon-3d {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.icon-shadow-3d {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(0, 86, 179, 0.2);
+    filter: blur(8px);
+    z-index: 1;
+}
+
+.service-title {
+    font-size: 1.5rem;
     font-weight: 600;
-    display: none;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    transition: color 0.3s;
+}
+
+.service-modern-card:hover .service-title {
+    color: var(--primary-color);
+}
+
+.service-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.service-features {
+    list-style: none;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.service-features li i {
+    color: var(--success-color);
+}
+
+/* Decorative Hover Gradient */
+.card-hover-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0), rgba(0, 168, 232, 0));
+    transition: all 0.5s ease;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.service-modern-card:hover .card-hover-gradient {
+    opacity: 0.1;
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.1), rgba(0, 168, 232, 0.1));
 }
 
 /* Responsive */
